@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organic Kisan Mart</title>
+  <style>
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      box-sizing: border-box;
+    }
+
+    header {
+      background: linear-gradient(to right, #ff7f50, #ff4500);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2rem;
+    }
+
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1rem;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: #ff7f50;
+      transform: scale(1.1);
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      background-color: #333;
+      color: white;
+      padding: 8px 15px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 5px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ff7f50;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #ff7f50;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body h4 {
+      margin: 10px 0;
+      font-size: 1.5rem;
+      color: #4caf50;
+    }
+
+    .card-body button {
+      background-color: #ff4500;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .card-body button:hover {
+      background-color: #e63900;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #ff7f50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Organic Kisan Mart</h1>
+    <p>Freshness Straight from the Farm</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <div class="dropdown">
+      <button class="dropbtn" aria-label="Categories">Category</button>
+      <div class="dropdown-content">
+        <a href="fruit.html">Fruits</a>
+        <a href="vegitable.html">Vegetables</a>
+        <a href="grain.html">Grains</a>
+        <a href="dairy.html">Dairy</a>
+        <a href="oil.html">Cold Pressed Oils</a>
+        <a href="winter.html">Winter Specials</a>
+      </div>
+    </div>
+    <a href="#deals">Deals</a>
+    <a id="cart" href="cart.html">My Cart <span id="cart-count">0</span></a>   
+  </nav>
+
+  <section>
+    <h2 style="text-align:center; margin: 20px;">Fresh Fruits</h2>
+    <div class="container">
+      <!-- Example Products -->
+      <div class="card">
+        <img src="apple.jpg" alt="Apple">
+        <div class="card-body">
+          <h4>Apple</h4>
+          <p>Price: ₹150/kg</p>
+          <button onclick="addToCart('Apple', 150)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Banana Card -->
+      <div class="card">
+        <img src="banana.jpg" alt="Banana">
+        <div class="card-body">
+          <h4>Banana</h4>
+          <p>Organic Banana</p>
+          <p>Price: ₹50/kg</p>
+          <button onclick="addToCart('Banana', 50)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Orange Card -->
+      <div class="card">
+        <img src="orange.jpg" alt="Orange">
+        <div class="card-body">
+          <h4>Orange</h4>
+          <p>Price: ₹130/kg</p>
+          <button onclick="addToCart('Orange', 130)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Grapes Card -->
+      <div class="card">
+        <img src="grape.jpg" alt="Grapes">
+        <div class="card-body">
+          <h4>Grapes</h4>
+          <p>Price: ₹60/kg</p>
+          <button onclick="addToCart('Grapes', 60)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Mango Card -->
+<div class="card">
+  <img src="mango.jpg" alt="Mango">
+  <div class="card-body">
+    <h4>Mango</h4>
+    <p>Price: ₹100/kg</p>
+    <button onclick="addToCart('Mango', 100, 'mango.jpg')">Add to Cart</button>
+  </div>
+</div>
+
+
+      <!-- Strawberry Card -->
+      <div class="card">
+        <img src="strawberry.jpg" alt="Strawberry">
+        <div class="card-body">
+          <h4>Strawberry</h4>
+          <p>Price: ₹60/box</p>
+          <button onclick="addToCart('Strawberry', 60,'strawberry.jpg')">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Pineapple Card -->
+      <div class="card">
+        <img src="pineapple.jpg" alt="Pineapple">
+        <div class="card-body">
+          <h4>Pineapple</h4>
+          <p>Price: ₹50 each</p>
+          <button onclick="addToCart('Pineapple', 50)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Watermelon Card -->
+      <div class="card">
+        <img src="watermelon.jpg" alt="Watermelon">
+        <div class="card-body">
+          <h4>Watermelon</h4>
+          <p>Price: ₹40 each</p>
+          <button onclick="addToCart('Watermelon', 40)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function addToCart(name, price, image) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({ name, price, image });
+  localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to localStorage
+  updateCartCount(); // Update the cart count display
+  alert(`${name} added to cart!`); // Show alert to confirm addition
+}
+
+  </script>  
+</body>
+</html>

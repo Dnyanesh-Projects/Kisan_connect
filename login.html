@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kisan Mart - Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <h1>Organic Kisan Mart</h1>
+        <p>Freshness Straight from the Farm</p>
+      </header>
+    
+      <nav>
+        <div>
+          <a href="index.html">Home</a>
+          <a href="login.html">Login</a>
+          <!-- Dropdown for Categories -->
+          <div class="dropdown">
+            <button class="dropbtn">Category
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Fruits</a>
+              <a href="#">Vegetables</a>
+              <a href="#">Grains</a>
+              <a href="#">Dairy</a>
+              <a href="#">Cold Pressed Oils</a>
+              <a href="#">Winter Specials</a>
+            </div>
+          </div>
+          <a href="#deals">Deals</a>
+          <a href="#">My Cart</a>
+        </div>
+      </nav>
+  <div class="login-container">
+    <form id="loginForm">
+      <div class="imgcontainer">
+        <img src="kisan mart.jpg" alt="Avatar" class="avatar">
+      </div>
+
+      <div class="container">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" id="username" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" id="password" required>
+
+        <button type="button" id="loginBtn">Login</button>
+        <label>
+          <input type="checkbox" id="rememberMe"> Remember me
+        </label>
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn" onclick="cancelForm()">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+  </div>
+  <script>
+  // Select the form and elements
+  const loginForm = document.getElementById("loginForm");
+  const loginBtn = document.getElementById("loginBtn");
+  
+  // Login button functionality
+  loginBtn.addEventListener("click", function () {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+  
+    // Basic validation
+    if (username === "" || password === "") {
+      alert("Please fill in all fields.");
+    } else {
+      // Simulating login success
+      alert(`Login successful! Welcome, ${username}!`);
+      // Redirect to Home Page
+      window.location.href = "index.html"; // Replace 'home.html' with your actual home page file name
+    }
+  });
+  
+  // Cancel button functionality
+  function cancelForm() {
+    loginForm.reset();
+    alert("Login canceled!");
+  }
+</script>
+</body>
+</html>

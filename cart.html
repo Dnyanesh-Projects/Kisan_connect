@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Cart - Organic Kisan Mart</title>
+  <style>
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #ff7f50, #ff4500);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .cart-container {
+      padding: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 15px;
+    }
+
+    .cart-item .details {
+      flex-grow: 1;
+    }
+
+    .cart-item .details h4 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #4caf50;
+    }
+
+    .cart-item .details p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .total {
+      background-color: #ff7f50;
+      color: white;
+      text-align: right;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-size: 1.5rem;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #ff7f50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Cart - Organic Kisan Mart</h1>
+  </header>
+
+  <div class="cart-container">
+    <div id="cart-items"></div>
+    <div class="total">
+      Total: ₹<span id="total-price">0</span>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Organic Kisan Mart | <a href="privacy-policy.html">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    // Function to display cart items and calculate total
+    function displayCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItemsContainer = document.getElementById('cart-items');
+      const totalPriceElement = document.getElementById('total-price');
+      let totalPrice = 0;
+
+      // Clear existing items
+      cartItemsContainer.innerHTML = '';
+
+      // Loop through each cart item and display it
+      cart.forEach(item => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+
+        cartItem.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" />
+          <div class="details">
+            <h4>${item.name}</h4>
+            <p>Price: ₹${item.price}</p>
+          </div>
+        `;
+
+        cartItemsContainer.appendChild(cartItem);
+        totalPrice += item.price; // Add price to total
+      });
+
+      // Update the total price display
+      totalPriceElement.textContent = totalPrice;
+    }
+
+    // Display cart items when page loads
+    window.onload = displayCart;
+  </script>
+</body>
+</html>
